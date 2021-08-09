@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/holo_blue_light"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+<ImageView
+    android:layout_marginStart="15dp"
+    android:layout_marginTop="50dp"
+android:onClick="closeDrawer"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/ic_baseline_arrow_back_24"
+    android:id="@+id/back"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/dp"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="1dp"
+        android:layout_marginStart="15dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/dp" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_toEndOf="@+id/dp"
+    android:layout_marginBottom="10dp"
+    android:layout_alignParentBottom="true"
+
+
+    android:layout_marginStart="5dp"
+    android:id="@+id/q">
+
+    <TextView
+    android:autoSizeTextType="uniform"
+        android:maxLines="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:autoSizeTextType="uniform"
+        android:maxLines="2"
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:text="Email@Domain.com" />
+</LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,122 @@
+{
+  "project_info": {
+    "project_number": "893214746397",
+    "firebase_url": "https://android-1562572695529.firebaseio.com",
+    "project_id": "android-1562572695529",
+    "storage_bucket": "android-1562572695529.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893214746397:android:c19927a93f6b93c50323f4",
+        "android_client_info": {
+          "package_name": "com.mathcity.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893214746397-hlin5f0lijib5e0bj7qq0ui2t68pbp6m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mathcity.myapplication",
+            "certificate_hash": "930ac738dc4d3f7f763468e0dfff27de1b5900f2"
+          }
+        },
+        {
+          "client_id": "893214746397-afruju048cr476ens2feoefsqf379hl3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAioBxg0vH_-iYwkFjBv2n_XJ7Jazuls1s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893214746397-14j6el5kos4q8ga8pqfcdjifpoeq6c96.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893214746397:android:44ae8e2849b0cb160323f4",
+        "android_client_info": {
+          "package_name": "com.mathcity.myapplicationX"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893214746397-h7s6udrahekft2iqagu734s3ormgbv5l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mathcity.myapplicationX",
+            "certificate_hash": "b2274377aa75b88d03cc74b2c801c7d394a6af49"
+          }
+        },
+        {
+          "client_id": "893214746397-pr9eo8mefkr0455pdtvg3kqqerk0ehf6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mathcity.myapplicationX",
+            "certificate_hash": "930ac738dc4d3f7f763468e0dfff27de1b5900f2"
+          }
+        },
+        {
+          "client_id": "893214746397-afruju048cr476ens2feoefsqf379hl3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAioBxg0vH_-iYwkFjBv2n_XJ7Jazuls1s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893214746397-14j6el5kos4q8ga8pqfcdjifpoeq6c96.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:893214746397:android:1068dd5cff45c82c0323f4",
+        "android_client_info": {
+          "package_name": "com.speedovpn.techloop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "893214746397-afruju048cr476ens2feoefsqf379hl3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAioBxg0vH_-iYwkFjBv2n_XJ7Jazuls1s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "893214746397-14j6el5kos4q8ga8pqfcdjifpoeq6c96.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

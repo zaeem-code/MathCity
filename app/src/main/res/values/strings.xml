@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MathCity</string>
+    <string name="web_client_id">893214746397-afruju048cr476ens2feoefsqf379hl3.apps.googleusercontent.com</string>
+
+
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+</resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?><menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/top"
+        android:checkableBehavior="single">
+
+
+        <item
+            android:checkable="false"
+            android:checked="true"
+            android:title=" " />
+    </group>
+
+    <group
+        android:id="@+id/middle"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/home"
+            android:checked="false"
+            android:checkable="true"
+
+            android:title="Home" />
+        <item
+            android:checked="false"
+            android:checkable="true"
+            android:id="@+id/testingsection"
+            android:title="Testing Section" />
+
+
+        <item
+            android:checked="false"
+            android:checkable="true"
+            android:id="@+id/learninsection"
+            android:title="Learning Section" />
+
+
+        <item
+            android:checked="false"
+            android:checkable="true"
+            android:id="@+id/profile"
+            android:title="My Profile" />
+
+
+        <item
+            android:checked="false"
+            android:checkable="true"
+            android:id="@+id/records"
+            android:title="Records" />
+
+
+        <item
+            android:checked="false"
+            android:checkable="true"
+            android:id="@+id/parents"
+            android:title="Parents Detail" />
+
+        <item
+            android:checked="false"
+            android:checkable="true"
+            android:id="@+id/feedback"
+            android:title="Contact and Support" />
+
+
+        <item
+            android:checked="false"
+            android:checkable="true"
+            android:id="@+id/share"
+            android:title="Share" />
+    </group>
+
+    <group
+        android:id="@+id/bottom"
+        android:checkableBehavior="single">
+
+
+        <item
+            android:checked="false"
+            android:checkable="true"
+            android:id="@+id/logout"
+            android:title="Logout" />
+    </group>
+
+</menu>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.register">
+
+   <RelativeLayout
+       android:layout_alignParentTop="true"
+       android:layout_width="match_parent"
+       android:id="@+id/bg"
+       android:background="@android:color/holo_blue_light"
+
+       android:layout_height="wrap_content">
+       <ImageView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+            android:src="@drawable/signupbgb"/>
+   </RelativeLayout>
+
+
+
+    <androidx.cardview.widget.CardView
+
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        android:layout_marginTop="100dp"
+        app:cardBackgroundColor="@android:color/holo_blue_light"
+
+        android:id="@+id/gbg"
+        android:layout_below="@+id/bg"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:onClick="signup"
+        android:layout_marginHorizontal="40dp"
+        >
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:onClick="signup"
+    android:background="@android:color/holo_blue_light"
+    >
+    <ImageView
+        android:layout_gravity="center_vertical"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/googleicn"
+        android:layout_marginEnd="10dp"
+        android:onClick="signup"
+        android:layout_toStartOf="@+id/g"
+        android:layout_centerVertical="true" />
+    <TextView
+        android:onClick="signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:text="REGISTER"
+        android:id="@+id/g"
+
+        android:layout_gravity="center_vertical"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textColor="@android:color/white"/>
+</LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@android:color/holo_blue_light"
+
+        android:layout_marginTop="30dp"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/gbg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:onClick="notnow"
+        android:layout_marginHorizontal="40dp"
+        >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:onClick="notnow"
+        android:layout_marginHorizontal="40dp"
+        android:background="@android:color/holo_blue_light"
+         android:gravity="center"
+            android:text="NOT NOW"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"/></androidx.cardview.widget.CardView>
+
+</RelativeLayout>
