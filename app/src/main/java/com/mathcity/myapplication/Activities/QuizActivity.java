@@ -41,18 +41,17 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-public class QuizActivity extends AppCompatActivity
-{
+public class QuizActivity extends AppCompatActivity {
 
-    int correct=0,wrong=0,current=0,total=9;
-    String chk="Easy",topic="Addition";
+    int correct = 0, wrong = 0, current = 0, total = 9;
+    String chk = "Easy", topic = "Addition";
     ProgressDialog dialog;
     QuizModel quizModel_item;
-    ImageView Questionimg,optionaPic,optionbPic;
+    ImageView Questionimg, optionaPic, optionbPic;
 
 
-    TextView correctv,wrongtv,currenttv,Header,optiona,optionb,timer;
-    ArrayList<QuizModel> PopulatedArray=new ArrayList();
+    TextView correctv, wrongtv, currenttv, Header, optiona, optionb, timer;
+    ArrayList<QuizModel> PopulatedArray = new ArrayList();
 //    ArrayList<QuizModel> pictureQuizModel_Array=new ArrayList();
 //    ArrayList<QuizModel> quizModel_Addition_Array =new ArrayList();
 //    ArrayList<QuizModel> quizModel_Subtraction_Array =new ArrayList();
@@ -62,48 +61,47 @@ public class QuizActivity extends AppCompatActivity
 
     RelativeLayout headermain;
 
-    ArrayList<QuizModel> Final_TEN_Quiz = new ArrayList(); 
+    ArrayList<QuizModel> Final_TEN_Quiz = new ArrayList();
     //will contain Final but non repetitive Qs
-    
-    Random  rI = new Random();
+
+    Random rI = new Random();
     // genrates random value
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_quiz);
-        chk=getIntent().getStringExtra("chk");
-        topic=getIntent().getStringExtra("topic").trim();
+        chk = getIntent().getStringExtra("chk");
+        topic = getIntent().getStringExtra("topic").trim();
 //
-        headermain=findViewById(R.id.header);
+        headermain = findViewById(R.id.header);
 
 
-    ////
+        ////
         ShowDialog("Loading Quiz ...");
 
 ///
 
-        Questionimg=findViewById(R.id.Question);
+        Questionimg = findViewById(R.id.Question);
 
-        optionaPic=findViewById(R.id.optionaPic);
-        optionbPic=findViewById(R.id.optionbPic);
+        optionaPic = findViewById(R.id.optionaPic);
+        optionbPic = findViewById(R.id.optionbPic);
 
-        optiona=findViewById(R.id.optiona);
-        optionb=findViewById(R.id.optionb);
+        optiona = findViewById(R.id.optiona);
+        optionb = findViewById(R.id.optionb);
 ////
 
-        correctv=findViewById(R.id.correct);
-        timer=findViewById(R.id.timer);
-        wrongtv=findViewById(R.id.wrong);
-        currenttv=findViewById(R.id.current);
-        Header=findViewById(R.id.quiztitel);
+        correctv = findViewById(R.id.correct);
+        timer = findViewById(R.id.timer);
+        wrongtv = findViewById(R.id.wrong);
+        currenttv = findViewById(R.id.current);
+        Header = findViewById(R.id.quiztitel);
 
         Header.setText(chk);
-        switch (chk){
+        switch (chk) {
 
             case "Medium":
 
@@ -277,26 +275,24 @@ public class QuizActivity extends AppCompatActivity
 
     //Shuffling and collecting Quiz Qs
 // new methode after topics
-    private void Populating_Array()
-    {
-        Log.d("hassan","---"+chk);
+    private void Populating_Array() {
+        Log.d("hassan", "---" + chk);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference(chk).child(topic);
 
-        Log.d("hassan","---"+myRef);
-        Log.d("hassan","---"+topic);
+        Log.d("hassan", "---" + myRef);
+        Log.d("hassan", "---" + topic);
         //snapshot ni mil raha
         myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if (!dataSnapshot.exists()){
+                if (!dataSnapshot.exists()) {
                     Toast.makeText(QuizActivity.this, "Db1 is Empty", Toast.LENGTH_SHORT).show();
                     ShowDialog("");
                     return;
                 }
-                for (DataSnapshot dsp:dataSnapshot.getChildren())
-                {
-                    quizModel_item=   dsp.getValue(QuizModel.class);
+                for (DataSnapshot dsp : dataSnapshot.getChildren()) {
+                    quizModel_item = dsp.getValue(QuizModel.class);
                     PopulatedArray.add(quizModel_item);
 
                 }
@@ -312,30 +308,30 @@ public class QuizActivity extends AppCompatActivity
         });
 
     }
+
     int condition;
+
     private void Get_Random_Questions() {
 
-        Log.d("hassan","itration no :"+PopulatedArray.size());
-        if (PopulatedArray.size()<10){
-              condition=PopulatedArray.size();
-        }else {
-            condition=10;
+        Log.d("hassan", "itration no :" + PopulatedArray.size());
+        if (PopulatedArray.size() < 10) {
+            condition = PopulatedArray.size();
+        } else {
+            condition = 10;
         }
-        for (int i=0; i<condition;)
-        {
-Log.d("hassan","itration no :"+i+"    ,"+quizModel_item.getQuestion());
+        for (int i = 0; i < condition; ) {
+            Log.d("hassan", "itration no :" + i + "    ," + quizModel_item.getQuestion());
 
-            int Image_Random = rI.nextInt((PopulatedArray.size()-1 ) - 0 + 1) + 0;
+            int Image_Random = rI.nextInt((PopulatedArray.size() - 1) - 0 + 1) + 0;
 
             /////getingQuestion Normal
-            quizModel_item=    PopulatedArray.get(Image_Random);
-            if (!Final_TEN_Quiz.contains(quizModel_item))
-            {
+            quizModel_item = PopulatedArray.get(Image_Random);
+            if (!Final_TEN_Quiz.contains(quizModel_item)) {
                 Final_TEN_Quiz.add(quizModel_item);
                 i++;
             }
 
-            Log.d("hassan","itration no :"+i+"    ,"+quizModel_item.getQuestion());
+            Log.d("hassan", "itration no :" + i + "    ," + quizModel_item.getQuestion());
         }
         ///Loading First Q
         updateUI_Resulsts();
@@ -453,22 +449,21 @@ Log.d("hassan","itration no :"+i+"    ,"+quizModel_item.getQuestion());
 //    }
 
 
-
-    void LoadQuestion()
-    {
-        quizModel_item=Final_TEN_Quiz.get(current);
-if (TextUtils.isEmpty(quizModel_item.getQuestion().trim())){
-    correct++;
-    if (current<condition-1) {
-        current++;
-        updateUI_Resulsts();
-        LoadQuestion();
-    }else {
-        if (dialog.isShowing()){
-            dialog.dismiss();}
-        updateUI_Resulsts();
-    }
-}
+    void LoadQuestion() {
+        quizModel_item = Final_TEN_Quiz.get(current);
+        if (TextUtils.isEmpty(quizModel_item.getQuestion().trim())) {
+            correct++;
+            if (current < condition - 1) {
+                current++;
+                updateUI_Resulsts();
+                LoadQuestion();
+            } else {
+                if (dialog.isShowing()) {
+                    dialog.dismiss();
+                }
+                updateUI_Resulsts();
+            }
+        }
         //loading question
         Glide.with(this)
                 .load(quizModel_item.getQuestion().trim())
@@ -476,20 +471,18 @@ if (TextUtils.isEmpty(quizModel_item.getQuestion().trim())){
 //                .placeholder(R.drawable.ic_baseline_wifi_protected_setup_24)
                 .listener(new RequestListener<Drawable>() {
                     @Override
-                    public boolean onLoadFailed( GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                       new Handler().post(new Runnable() {
-                                         @Override
-                                         public void run() {
-                                             try {
-                                                 LoadQuestionError();
+                    public boolean onLoadFailed(GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                        new Handler().post(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    LoadQuestionError();
 
-                                             }
-                                             catch (Exception e)
-                                             {
-                                                dialog.dismiss();
-                                             }
-                                         }
-                                     });
+                                } catch (Exception e) {
+                                    dialog.dismiss();
+                                }
+                            }
+                        });
 
 
                         // in case of error number will be awarded
@@ -507,9 +500,7 @@ if (TextUtils.isEmpty(quizModel_item.getQuestion().trim())){
                 .into(Questionimg);
 
 
-
-        if (quizModel_item.getOption_2().contains("https"))
-        {
+        if (quizModel_item.getOption_2().contains("https")) {
             // Pic answers do enable viewe2
             findViewById(R.id.PicView).setVisibility(View.VISIBLE);
             findViewById(R.id.TextView).setVisibility(View.GONE);
@@ -525,9 +516,7 @@ if (TextUtils.isEmpty(quizModel_item.getQuestion().trim())){
                     .fitCenter()
 //                    .placeholder(R.drawable.ic_baseline_wifi_protected_setup_24)
                     .into(optionbPic);
-        }
-        else
-        {
+        } else {
 
             // Text answers do enable viewe1
             findViewById(R.id.PicView).setVisibility(View.GONE);
@@ -541,109 +530,93 @@ if (TextUtils.isEmpty(quizModel_item.getQuestion().trim())){
     }
 
 
+    public void AnswerClicked(View view) {
 
-    public void AnswerClicked(View view)
-    {
-
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.optionaPic:
-                                if (quizModel_item.getOption_1().equals(quizModel_item.getAnswer()))
-                                    {
-                                    correct++;
+                if (quizModel_item.getOption_1().equals(quizModel_item.getAnswer())) {
+                    correct++;
 
-                                        Log.d("hassan"," optin a pic:  correct"+correct);
-                                    }else {
-                                    wrong++;
+                    Log.d("hassan", " optin a pic:  correct" + correct);
+                } else {
+                    wrong++;
 
-                                    Log.d("hassan"," optin a pic:  wrong"+wrong);
-                                    }
+                    Log.d("hassan", " optin a pic:  wrong" + wrong);
+                }
                 break;
             case R.id.optionbPic:
-                Log.d("hassan"," optin a pic");
-                                if (quizModel_item.getOption_2().equals(quizModel_item.getAnswer()))
-                                     {
-                                     correct++;
-                                         Log.d("hassan"," optin a pic:  correct"+correct);
-                                     }else {
-                                  wrong++;
-                                    Log.d("hassan"," optin a pic:  wrong"+wrong);
-                                }
+                Log.d("hassan", " optin a pic");
+                if (quizModel_item.getOption_2().equals(quizModel_item.getAnswer())) {
+                    correct++;
+                    Log.d("hassan", " optin a pic:  correct" + correct);
+                } else {
+                    wrong++;
+                    Log.d("hassan", " optin a pic:  wrong" + wrong);
+                }
                 break;
 
             default:
-                                TextView selectedption=  findViewById(view.getId());
-                                String selected=selectedption.getText().toString().trim();
+                TextView selectedption = findViewById(view.getId());
+                String selected = selectedption.getText().toString().trim();
 
-                                if (selected.equals(quizModel_item.getAnswer()))
-                                {
-                                  correct++;
+                if (selected.equals(quizModel_item.getAnswer())) {
+                    correct++;
 
-                                    Log.d("hassan"," optin a simple:  correct"+correct);
-                                    }else {
-                                        wrong++;
+                    Log.d("hassan", " optin a simple:  correct" + correct);
+                } else {
+                    wrong++;
 
-                                    Log.d("hassan"," optin a simple:  wrong"+wrong);
-                                    }
+                    Log.d("hassan", " optin a simple:  wrong" + wrong);
+                }
 
                 break;
         }
 
         current++;
-        if (current<condition-1)
-        {
-        ShowDialog("Loading next Question ...");
+        if (current < condition - 1) {
+            ShowDialog("Loading next Question ...");
 
-        updateUI_Resulsts();
-        LoadQuestion();
-        }
-        else
-        {
+            updateUI_Resulsts();
+            LoadQuestion();
+        } else {
             ShowFinalResults();
         }
     }
 
-    public void back(View view)
-    {
+    public void back(View view) {
         finish();
     }
 
     @SuppressLint("SetTextI18n")
-    private void updateUI_Resulsts()
-    {
-    currenttv.setText("Attempting "+(current+1)+"/"+condition);
-    wrongtv.setText("Incorrect: "+wrong);
-    correctv.setText("Correct: "+correct);
-}
+    private void updateUI_Resulsts() {
+        currenttv.setText("Attempting " + (current + 1) + "/" + condition);
+        wrongtv.setText("Incorrect: " + wrong);
+        correctv.setText("Correct: " + correct);
+    }
 
-    private void ShowDialog(String title)
-    {
-        if (dialog==null){
+    private void ShowDialog(String title) {
+        if (dialog == null) {
 
             dialog = new ProgressDialog(this);
         }
-        if (!dialog.isShowing())
-        {
+        if (!dialog.isShowing()) {
             dialog.setTitle(title);
             dialog.setCancelable(false);
             dialog.show();
-        }
-        else {
+        } else {
             dialog.dismiss();
         }
     }
 
-private void ShowFinalResults()
-{
-        startActivity(new Intent(this,FinalResultsActivity.class).putExtra("chk",chk).putExtra("correct",correct).putExtra("topic",topic));
-finish();
+    private void ShowFinalResults() {
+        startActivity(new Intent(this, FinalResultsActivity.class).putExtra("chk", chk).putExtra("correct", correct).putExtra("topic", topic));
+        finish();
 
-}
-
+    }
 
 
-
-    void startTimer(){
-        new CountDownTimer(180000,1000) {
+    void startTimer() {
+        new CountDownTimer(180000, 1000) {
 
             public void onTick(long millisUntilFinished) {
 
@@ -667,17 +640,16 @@ finish();
     @Override
     protected void onDestroy() {
 
-        if (dialog.isShowing()){
+        if (dialog.isShowing()) {
             dialog.dismiss();
         }
         stopmedia();
         super.onDestroy();
     }
 
-    void LoadQuestionError()
-    {
+    void LoadQuestionError() {
 
-        quizModel_item=Final_TEN_Quiz.get(current);
+        quizModel_item = Final_TEN_Quiz.get(current);
         Picasso picasso = new Picasso.Builder(getApplicationContext())
                 .listener(new Picasso.Listener() {
                     @Override
@@ -688,23 +660,25 @@ finish();
 //                .placeholder(R.drawable.ic_baseline_wifi_protected_setup_24)
                                 .listener(new RequestListener<Drawable>() {
                                     @Override
-                                    public boolean onLoadFailed( GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                                        if (dialog.isShowing()){
+                                    public boolean onLoadFailed(GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                        if (dialog.isShowing()) {
                                             dialog.dismiss();
                                             ShowDialog("There seems to be a problem with your internet connection!\n Please wait or quit the Quiz if taking too long");
                                         }
                                         Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT).show();
 
                                         correct++;
-                                        if (current<condition-1) {
-                                            if (dialog.isShowing()){
-                                                dialog.dismiss();}
+                                        if (current < condition - 1) {
+                                            if (dialog.isShowing()) {
+                                                dialog.dismiss();
+                                            }
                                             current++;
                                             updateUI_Resulsts();
                                             LoadQuestion();
-                                        }else {
-                                            if (dialog.isShowing()){
-                                                dialog.dismiss();}
+                                        } else {
+                                            if (dialog.isShowing()) {
+                                                dialog.dismiss();
+                                            }
                                             updateUI_Resulsts();
                                         }
 
@@ -732,10 +706,7 @@ finish();
         //loading question
 
 
-
-
-        if (quizModel_item.getOption_2().contains("https"))
-        {
+        if (quizModel_item.getOption_2().contains("https")) {
             // Pic answers do enable viewe2
             findViewById(R.id.PicView).setVisibility(View.VISIBLE);
             findViewById(R.id.TextView).setVisibility(View.GONE);
@@ -751,9 +722,7 @@ finish();
                     .fitCenter()
 //                    .placeholder(R.drawable.ic_baseline_wifi_protected_setup_24)
                     .into(optionbPic);
-        }
-        else
-        {
+        } else {
 
             // Text answers do enable viewe1
             findViewById(R.id.PicView).setVisibility(View.GONE);
@@ -765,29 +734,33 @@ finish();
         }
 
     }
+
     MediaPlayer mp;
 
-    private void playmedia(){
+    private void playmedia() {
         mp = MediaPlayer.create(this, R.raw.sound);
         mp.start();
 
 
     }
-    private void stopmedia(){
-        try {
-            if (mp!=null){
-            if (mp.isPlaying()) {
-                mp.stop();
-                mp.release();
-            }else{
 
-                mp.release();
-            }}
-        } catch(Exception e) { e.printStackTrace(); }
+    private void stopmedia() {
+        try {
+            if (mp != null) {
+                if (mp.isPlaying()) {
+                    mp.stop();
+                    mp.release();
+                } else {
+
+                    mp.release();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
     }
-
 
 
 }

@@ -10,10 +10,9 @@
     tools:context="com.mathcity.myapplication.Activities.Home">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/tool"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/tolbar"
@@ -54,28 +53,24 @@
     </RelativeLayout>
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tool">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:visibility="visible"
+            app:lottie_autoPlay="true"
+            app:lottie_colorFilter="@android:color/holo_orange_dark"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/dolphin" />
 
 
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_below="@id/tool"
-      android:layout_height="wrap_content">
+    </RelativeLayout>
 
-      <com.airbnb.lottie.LottieAnimationView
-          android:background="@android:color/transparent"
-          app:lottie_autoPlay="true"
-          app:lottie_colorFilter="@android:color/holo_orange_dark"
-          android:visibility="visible"
-          app:lottie_loop="true"
-          app:lottie_rawRes="@raw/dolphin"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
-
-
-
-
-
-  </RelativeLayout>
 
 
 

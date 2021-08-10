@@ -72,7 +72,6 @@
         android:id="@+id/bottom"
         android:checkableBehavior="single">
 
-
         <item
             android:checked="false"
             android:checkable="true"

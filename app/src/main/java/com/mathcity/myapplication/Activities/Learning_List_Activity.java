@@ -13,6 +13,7 @@ import com.mathcity.myapplication.R;
 
 public class Learning_List_Activity extends AppCompatActivity {
     private RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +27,7 @@ public class Learning_List_Activity extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-findViewById(R.id.view2).setVisibility(View.VISIBLE);
+        findViewById(R.id.view2).setVisibility(View.VISIBLE);
 
     }
 
@@ -35,40 +36,39 @@ findViewById(R.id.view2).setVisibility(View.VISIBLE);
      */
 
 
-
-    private void  generateDummyVideoList(String topic) {
-        Toast.makeText(this, "topic"+topic, Toast.LENGTH_SHORT).show();
+    private void generateDummyVideoList(String topic) {
+        Toast.makeText(this, "topic" + topic, Toast.LENGTH_SHORT).show();
         //get the video id array, title array and duration array from strings.xml
-        switch (topic){
+        switch (topic) {
             case "Division":
 
-            recyclerView.setAdapter( new YoutubeVideoAdapter(this, getResources().getStringArray(R.array.video_id_array)));
+                recyclerView.setAdapter(new YoutubeVideoAdapter(this, getResources().getStringArray(R.array.division)));
                 break;
 
 
             case "Multiplication":
-                recyclerView.setAdapter( new YoutubeVideoAdapter(this, getResources().getStringArray(R.array.video_id_array)));
-            break;
+                recyclerView.setAdapter(new YoutubeVideoAdapter(this, getResources().getStringArray(R.array.multiply)));
+                break;
 
 
             case "Addition":
-                recyclerView.setAdapter( new YoutubeVideoAdapter(this, getResources().getStringArray(R.array.video_id_array)));
-            break;
+                recyclerView.setAdapter(new YoutubeVideoAdapter(this, getResources().getStringArray(R.array.video_id_array)));
+                break;
 
 
             case "Subtraction":
-                recyclerView.setAdapter( new YoutubeVideoAdapter(this, getResources().getStringArray(R.array.video_id_array)));
-            break;
+                recyclerView.setAdapter(new YoutubeVideoAdapter(this, getResources().getStringArray(R.array.substraction)));
+                break;
 
 
             case "EvenOdd":
-                recyclerView.setAdapter( new YoutubeVideoAdapter(this, getResources().getStringArray(R.array.video_id_array)));
-            break;
+                recyclerView.setAdapter(new YoutubeVideoAdapter(this, getResources().getStringArray(R.array.evenodd)));
+                break;
 
 
             case "ImageQuestion":
-                recyclerView.setAdapter( new YoutubeVideoAdapter(this, getResources().getStringArray(R.array.video_id_array)));
-            break;
+                recyclerView.setAdapter(new YoutubeVideoAdapter(this, getResources().getStringArray(R.array.img_ques)));
+                break;
 
         }
         findViewById(R.id.view2).setVisibility(View.GONE);
@@ -76,23 +76,24 @@ findViewById(R.id.view2).setVisibility(View.VISIBLE);
         recyclerView.setVisibility(View.VISIBLE);
         backcount++;
     }
-    int backcount=1;
+
+    int backcount = 1;
+
     public void back(View view) {
-        Toast.makeText(this, ""+backcount, Toast.LENGTH_SHORT).show();
-        if (backcount>=2){
+        Toast.makeText(this, "" + backcount, Toast.LENGTH_SHORT).show();
+        if (backcount >= 2) {
 
             backcount--;
             recyclerView.setVisibility(View.GONE);
             findViewById(R.id.view2).setVisibility(View.VISIBLE);
-            }else {
+        } else {
             finish();
         }
     }
 
     public void Go(View view) {
 
-        switch (view.getId())
-        {
+        switch (view.getId()) {
 
             case R.id.div:
                 selected("Division");

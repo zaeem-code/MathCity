@@ -112,7 +112,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     protected void sendEmail() {
         String[] TO = {"F2017065156@umt.edu.pk"};
         String[] CC = {""};
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
 
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.setType("text/plain");

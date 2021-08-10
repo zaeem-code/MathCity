@@ -1,11 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="video_id_array">
-    <item>uo_yV06qx54</item>
-    <item>ZVO8Wt_PCgE</item>
-        <item>uo_yV06qx54</item>
-        <item>ZVO8Wt_PCgE</item>
-        <item>uo_yV06qx54</item>
-        <item>ZVO8Wt_PCgE</item>
+        <item>_b0oMzlvERI</item>
+        <item>uQiUTFO78Jk</item>
+        <item>WwlrbMWcTtQ</item>
+        <item>Fe8u2I3vmHU</item>
+        <item>WwlrbMWcTtQ</item>
     </string-array>
+
+
+
+    <string-array name="img_ques">
+        <item>_b0oMzlvERI</item>
+        <item>zuYjDy9VJTc</item>
+        <item>E3uxBI9npas</item>
+        <item>J0lsX2d7y08</item>
+
+    </string-array>
+
+
+    <string-array name="substraction">
+        <item>qM7B2nwpV1M</item>
+        <item>zuYjDy9VJTc</item>
+        <item>wtl147MKVVQ</item>
+        <item>UuTpcsDkW0c</item>
+        <item>3iQqmmG8wQQ</item>
+    </string-array>
+
+
+
+    <string-array name="evenodd">
+        <item>tEpT7W4RG04</item>
+        <item>E3uxBI9npas</item>
+        <item>AFjtCLhA5cY</item>
+        <item>BZ41Fh2MEVw</item>
+    </string-array>
+
+
+
+    <string-array name="division">
+        <item>J0lsX2d7y08</item>
+        <item>q8-Efax54xQ</item>
+        <item>-uwr-_efjLo</item>
+    </string-array>
+
+
+    <string-array name="multiply">
+        <item>CFDCG1b4ahk</item>
+        <item>TljNrjcpfRw</item>
+        <item>k5LBo2-5DPg</item>
+        <item>gjqxhtjyfC4</item>
+    </string-array>
+
+
+
+
 </resources>
